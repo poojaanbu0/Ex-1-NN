@@ -1,11 +1,10 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : POOJA.A</H3>
+<H3>ENTER YOUR REGISTER NO.: 212222240072</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE: 01-03-2024 </H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
-
 To perform Data preprocessing in a data set downloaded from Kaggle
 
 ## EQUIPMENTS REQUIRED:
@@ -13,7 +12,6 @@ Hardware – PCs
 Anaconda – Python 3.7 Installation / Google Colab /Jupiter Notebook
 
 ## RELATED THEORETICAL CONCEPT:
-
 **Kaggle :**
 Kaggle, a subsidiary of Google LLC, is an online community of data scientists and machine learning practitioners. Kaggle allows users to find and publish data sets, explore and build models in a web-based data-science environment, work with other data scientists and machine learning engineers, and enter competitions to solve data science challenges.
 
@@ -37,12 +35,45 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
 
+
+import pandas as pd                                                 # Importing Libraries
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+df=pd.read_csv("Churn_Modelling.csv",index_col="RowNumber")         # Read the dataset from drive
+df.head()
+df.isnull().sum()                                                   # Finding Missing Values
+df.duplicated().sum()                                               # Check For Duplicates
+df=df.drop(['Surname', 'Geography','Gender'], axis=1)               # Remove Unnecessary Columns
+scaler=StandardScaler()                                             # Normalize the dataset
+df=pd.DataFrame(scaler.fit_transform(df))
+df.head()
+X,Y=df.iloc[:,:-1].values ,df.iloc[:,-1].values                     # Split the dataset into input and output
+print('Input:\n',X,'\nOutput:\n',Y) 
+Xtrain,Xtest,Ytrain,Ytest = train_test_split(X, Y, test_size=0.2)   # Splitting the data for training & Testing
+print("Xtrain:\n" ,Xtrain, "\nXtest:\n", Xtest)                     # X Train and Test
+print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)                   # Y Train and Test
+
+```
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+### Dataset:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/a7af9530-258a-46f6-9076-bc03473b87bd)
 
+### Null values:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/ebd54c00-2d18-4768-b2bf-25b8ab4af5ad)
+
+### Normalised data:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/ba903eca-dd96-4106-80b5-8ceab9344312)
+
+### Data splitting:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/f0e89ce0-8674-4008-9208-13ab68e4a5f1)
+
+### Train and Test data:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/e9eff234-81da-45f1-a103-0f93c043954b)
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
