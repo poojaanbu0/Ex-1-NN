@@ -57,6 +57,8 @@ Xtrain,Xtest,Ytrain,Ytest = train_test_split(X, Y, test_size=0.2)   # Splitting 
 print("Xtrain:\n" ,Xtrain, "\nXtest:\n", Xtest)                     # X Train and Test
 print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)                   # Y Train and Test
 
+
+print("Lenght of X_test ",len(Xtest))
 ```
 
 ## OUTPUT:
@@ -74,6 +76,10 @@ print("\nYtrain:\n" ,Ytrain, "\nYtest:\n", Ytest)                   # Y Train an
 
 ### Train and Test data:
 ![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/e9eff234-81da-45f1-a103-0f93c043954b)
+
+### Length:
+![image](https://github.com/poojaanbu0/Ex-1-NN/assets/119390329/7420e8f0-8172-47d5-ab7c-b7b52a8a6f42)
+
 
 ## RESULT:
 Thus, Implementation of Data Preprocessing is done in python  using a data set downloaded from Kaggle.
